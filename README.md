@@ -18,6 +18,7 @@ scratch at the gate level and which runs some "useful" software.
   great software
 * ["CPU made out of TTL chips only"](https://www.qsl.net/ct1dmk/ttlcpu.html)
   Another very interesting design.
+* [Stack Machine](https://www.mtmscientific.com/stack.html) by MTM Scientific.  Very interesting read.
 
 ## Early explorations
 
