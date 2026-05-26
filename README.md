@@ -10,6 +10,8 @@ scratch at the gate level and which runs some "useful" software.
 
 * [Stack Computers](https://users.ece.cmu.edu/~koopman/stack_computers/index.html):
   the new wave, P. Koopman
+* [Figforth.org.uk](http://www.figforth.org.uk/) site with some useful details on the inner workings of FigForth.
+* [Systems Guide to FigForth](https://www.forth.org/OffeteStore/1010_SystemsGuideToFigForth.pdf)
 * [TOM-1](https://hackaday.io/project/171965-ttl-operation-module-tom-1)
   project on Hackaday
 * [CPUville](http://cpuville.com/index.html) site with various
@@ -22,6 +24,7 @@ scratch at the gate level and which runs some "useful" software.
     * [Eckert paper](Refs/Eckert_paper.html) from 1998, "MICRO-PROGRAMMED VERSUS HARDWIRED CONTROL UNITS:
 HOW COMPUTERS REALLY WORK"
 * "Practical Digital Design using ICs" by J. Greenfield (available at Internet Archive)
+* [fig-FORTH for PDP-11](http://www.stackosaurus.com/figforth.html)
 
 ## Initial thoughts on architecture
 
