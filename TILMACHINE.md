@@ -1,6 +1,18 @@
 
 # TIL Architecture
 
+## Generic word format
+
+| Field     | Name         | Size  | Notes                                            |
+|-----------|--------------|-------|--------------------------------------------------|
+| Header    | Length/flags | 1     | Length (low bits) plus immediate and other flags |
+|           | Name         | <len> | ASCII name                                       |
+| Link      | Link         | 1     | Pointer to previous word                         |
+| Code      | Code address | 1     | address of machine code (DOCOL, DOVAR etc)       |
+| Parameter | Data...      | 1     |                                                  |
+|           | ...          | 1     |                                                  |
+
+
 ## Secondary word
 
 | Field     | Name         | Size  | Notes                                            |

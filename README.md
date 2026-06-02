@@ -12,6 +12,7 @@ scratch at the gate level and which runs some "useful" software.
   the new wave, P. Koopman
 * [Figforth.org.uk](http://www.figforth.org.uk/) site with some useful details on the inner workings of FigForth.
 * [Systems Guide to FigForth](https://www.forth.org/OffeteStore/1010_SystemsGuideToFigForth.pdf)
+* [Starting Forth](https://www.forth.com/starting-forth/0-starting-forth/) by Leo Brodie (online edition)
 * [Brad Rodriguez](https://www.bradrodriguez.com/papers/) publications, including an
 excellent TCJ series on Forth design
 * [TOM-1](https://hackaday.io/project/171965-ttl-operation-module-tom-1)
