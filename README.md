@@ -6,34 +6,15 @@ leftover TTL chips from the EDF, including a bunch of 74LS181 ALUs.
 Also would really like to have a computer I built completely from
 scratch at the gate level and which runs some "useful" software.
 
-## Resources
-
-* [Stack Computers](https://users.ece.cmu.edu/~koopman/stack_computers/index.html):
-  the new wave, P. Koopman
-* [Figforth.org.uk](http://www.figforth.org.uk/) site with some useful details on the inner workings of FigForth.
-* [Systems Guide to FigForth](https://www.forth.org/OffeteStore/1010_SystemsGuideToFigForth.pdf)
-* [Starting Forth](https://www.forth.com/starting-forth/0-starting-forth/) by Leo Brodie (online edition)
-* [Brad Rodriguez](https://www.bradrodriguez.com/papers/) publications, including an
-excellent TCJ series on Forth design
-* [TOM-1](https://hackaday.io/project/171965-ttl-operation-module-tom-1)
-  project on Hackaday
-* [CPUville](http://cpuville.com/index.html) site with various
-  including a TTL 8-bit CPU
-* [SCAMP](https://github.com/jes/scamp-cpu) CPU project with some
-  great software
-* ["CPU made out of TTL chips only"](https://www.qsl.net/ct1dmk/ttlcpu.html)
-  Another very interesting design.
-* [Stack Machine](https://www.mtmscientific.com/stack.html) by MTM Scientific.  Very interesting read.
-    * [Eckert paper](Refs/Eckert_paper.html) from 1998, "MICRO-PROGRAMMED VERSUS HARDWIRED CONTROL UNITS:
-HOW COMPUTERS REALLY WORK"
-* "Practical Digital Design using ICs" by J. Greenfield (available at Internet Archive)
-* [fig-FORTH for PDP-11](http://www.stackosaurus.com/figforth.html)
-
 ## Initial thoughts on architecture
 
 * 16-bit address with some possibility of additional paging for expansion
 * 16-bit data path, registers, ALU
 * Two sizes - DS (8 bit or possibly 16 bit); AS (16 bit)
+
+The design should be completely synchronous.  This implies registers have
+a clock enable, so use '377 rather than '374 for example.
+
 
 | Name | Size | Use                     | Notes                     |
 |------|------|-------------------------|---------------------------|
@@ -78,8 +59,36 @@ HOW COMPUTERS REALLY WORK"
 | LDX  |   | Load X                         |
 | ENX  |   | Output X                       |
 |      |   |                                |
+
+## Resources
+
+* [Stack Computers](https://users.ece.cmu.edu/~koopman/stack_computers/index.html):
+  the new wave, P. Koopman
+* [Figforth.org.uk](http://www.figforth.org.uk/) site with some useful details on the inner workings of FigForth.
+* [Systems Guide to FigForth](https://www.forth.org/OffeteStore/1010_SystemsGuideToFigForth.pdf)
+* [Starting Forth](https://www.forth.com/starting-forth/0-starting-forth/) by Leo Brodie (online edition)
+* [Brad Rodriguez](https://www.bradrodriguez.com/papers/) publications, including an
+excellent TCJ series on Forth design
+* [TOM-1](https://hackaday.io/project/171965-ttl-operation-module-tom-1)
+  project on Hackaday
+* [CPUville](http://cpuville.com/index.html) site with various
+  including a TTL 8-bit CPU
+* [SCAMP](https://github.com/jes/scamp-cpu) CPU project with some
+  great software
+* ["CPU made out of TTL chips only"](https://www.qsl.net/ct1dmk/ttlcpu.html)
+  Another very interesting design.
+* [Stack Machine](https://www.mtmscientific.com/stack.html) by MTM Scientific.  Very interesting read.
+    * [Eckert paper](Refs/Eckert_paper.html) from 1998, "MICRO-PROGRAMMED VERSUS HARDWIRED CONTROL UNITS:
+HOW COMPUTERS REALLY WORK"
+* "Practical Digital Design using ICs" by J. Greenfield (available at Internet Archive)
+* [fig-FORTH for PDP-11](http://www.stackosaurus.com/figforth.html)
+
 	
 ## Tools
+
+There exists https://opencores.org/projects/ttl_library.
+The internet says the models work well with GHDL.
+This seems the most promising model for simulation.
 
 Found `logisim-evolution`, which is a seemingly competent simulator
 with a comprehensive TTL library.  It has testbench support and even
@@ -89,4 +98,6 @@ Some issues/limitations:
 
 * TTL parts have only "chip icon" representations.  But can wrap them
   as subcircuits.
+
+
   
