@@ -437,7 +437,7 @@
         "uuid": "a20f94c8-e12f-422f-aacc-6eccc92eb74d"
       }
     ],
-    "used_designators": "U29-30,#PWR58-61",
+    "used_designators": "#PWR63-82,U7-12,U29-43",
     "variants": []
   },
   "sheets": [
@@ -476,6 +476,10 @@
     [
       "f1b2333c-a8dc-4752-b437-37ccae3e1e4a",
       "C"
+    ],
+    [
+      "fe9e0a0d-8dce-4568-8c16-0c260c26f10e",
+      "uSEQ"
     ]
   ],
   "text_variables": {},

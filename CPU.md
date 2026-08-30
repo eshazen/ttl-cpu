@@ -10,12 +10,14 @@ Initial two-bus architecture.  Registers:
 | ALU | RA / B | A     |   |
 | IR  | B      |       |   |
 
-Some thoughts on microcode:
+Some thoughts on sequencing.  All signals: '1' means active
 
-|           | -- | PC  | -- | IR | MAR | -- MEM | MEM -- | A  | -- B | B -- | -- C | C -- | -- | ALU | ---- |
-| Operation | LD | INC | OE | LD | LD  | WR     | RD     | LD | OE   | LD   | OE   | LD   | OE | F   | MODE |
-|-----------|----|-----|----|----|-----|--------|--------|----|------|------|------|------|----|-----|------|
-| Fetch     |    |     | 1  |    | 1   |        | 0       |    |      |      |      |      | 1  | =A  |      |
-|           |    |     |    |    |     |        | 1       |    |      |      |      |      |    |     |      |
+|           | -- | PC  | -- | IR | MAR | -- MEM | MEM -- | A  | -- B | B -- | -- C | C -- | -- | ALU | ---- |                    |
+| Operation | LD | INC | OE | LD | LD  | WE     | OE     | LD | OE   | LD   | OE   | LD   | OE | F   | MODE | Note               |
+|-----------|----|-----|----|----|-----|--------|--------|----|------|------|------|------|----|-----|------|--------------------|
+| Fetch     |    |     | 1  |    | 1   |        |        |    |      |      |      |      | 1  | =A  |      | PC thru ALU to MAR |
+|           |    |     |    |    |     |        | 1      |    |      |      |      |      |    |     |      | Read mem to IR     |
+|           |    | 1   |    | 1  |     |        |        |    |      |      |      |      |    |     |      | Memory to IR       |
+|           |    |     |    |    |     |        |        |    |      |      |      |      |    |     |      |                    |
 
 	
