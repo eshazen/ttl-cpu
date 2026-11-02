@@ -211,6 +211,16 @@
 		)
 		(uuid "0014aff8-4ad7-4ca3-9fc3-c90e9982e350")
 	)
+	(wire
+		(pts
+			(xy 154.94 38.1) (xy 165.1 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "032f9cc1-e94a-4032-9658-6ce109b1afcd")
+	)
 	(bus
 		(pts
 			(xy 43.18 71.12) (xy 43.18 125.73)
@@ -443,16 +453,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 62.23) (xy 83.82 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68f5739b-cec2-4a07-8a42-cc75d5d74e10")
-	)
-	(wire
-		(pts
 			(xy 44.45 73.66) (xy 52.07 73.66)
 		)
 		(stroke
@@ -480,6 +480,36 @@
 			(type default)
 		)
 		(uuid "6f62d0c0-6dad-4448-9986-8678f313264a")
+	)
+	(wire
+		(pts
+			(xy 76.2 41.91) (xy 87.63 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74d561ea-90fa-4b4c-9cbd-8ecabb4d9f7e")
+	)
+	(wire
+		(pts
+			(xy 78.74 59.69) (xy 87.63 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "760037cb-b46b-4da7-ac9a-a7e56285b6d3")
+	)
+	(wire
+		(pts
+			(xy 76.2 39.37) (xy 87.63 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c4f7952-2b38-4fde-a285-1b03a4b47d76")
 	)
 	(wire
 		(pts
@@ -541,6 +571,16 @@
 		)
 		(uuid "91200154-20db-4414-8ee7-da9ad73d40b1")
 	)
+	(wire
+		(pts
+			(xy 128.27 38.1) (xy 134.62 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "91d5e9c2-f383-4c94-8056-b9815b0d73ff")
+	)
 	(bus
 		(pts
 			(xy 43.18 125.73) (xy 52.07 125.73)
@@ -573,7 +613,7 @@
 	)
 	(wire
 		(pts
-			(xy 87.63 62.23) (xy 83.82 62.23)
+			(xy 107.95 59.69) (xy 120.65 59.69)
 		)
 		(stroke
 			(width 0)
@@ -661,16 +701,6 @@
 		)
 		(uuid "e4a27f25-364a-4350-844e-5234bf9880ab")
 	)
-	(wire
-		(pts
-			(xy 83.82 68.58) (xy 116.84 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ee2eb85a-3006-4369-adf6-fafe05674892")
-	)
 	(bus
 		(pts
 			(xy 107.95 35.56) (xy 125.73 35.56)
@@ -700,6 +730,16 @@
 			(justify left bottom)
 		)
 		(uuid "02f2a70a-e7d9-4dad-b3a4-222ab0bac09b")
+	)
+	(label "~{PC_LD}"
+		(at 76.2 39.37 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0dbd2bef-c870-4658-bcc3-a39899869033")
 	)
 	(label "~{MAR_EN}"
 		(at 44.45 58.42 0)
@@ -751,6 +791,16 @@
 		)
 		(uuid "35098780-7e53-405e-aca0-5ab30f3ab57d")
 	)
+	(label "~{IR_EN}"
+		(at 128.27 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "37a04664-5cdf-4401-88e1-36908f969ad2")
+	)
 	(label "~{A_EN}"
 		(at 44.45 128.27 0)
 		(effects
@@ -781,6 +831,26 @@
 		)
 		(uuid "486813b2-52ac-4f42-b757-f3f1f758171d")
 	)
+	(label "~{RAM_WE}"
+		(at 78.74 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5f1a6f01-7b38-4224-be5b-e8b1da4cd689")
+	)
+	(label "~{PC_INC}"
+		(at 76.2 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "80320d6a-4994-406c-8460-c971264fcd23")
+	)
 	(label "~{ALU_CIN}"
 		(at 76.2 138.43 0)
 		(effects
@@ -790,6 +860,16 @@
 			(justify left bottom)
 		)
 		(uuid "93aa278a-f510-4468-a944-ace451be7e02")
+	)
+	(label "~{IR_OE}"
+		(at 157.48 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a948dca2-31e2-4672-aab1-b50fe9c69e7c")
 	)
 	(label "~{ALU2B}"
 		(at 69.85 109.22 0)
@@ -812,7 +892,7 @@
 		(uuid "b8fd5853-0ba6-49eb-827a-e9ec6cdc286d")
 	)
 	(label "~{RAM_OE}"
-		(at 116.84 68.58 180)
+		(at 120.65 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -843,7 +923,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "97abcdfa-d212-4318-9be8-aa66bd6f1ab9")
-		(property "Reference" "#PWR062"
+		(property "Reference" "#PWR01"
 			(at 76.2 67.31 0)
 			(hide yes)
 			(show_name no)
@@ -903,7 +983,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d"
-					(reference "#PWR062")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -1483,13 +1563,13 @@
 			)
 		)
 		(pin "~{OE}" input
-			(at 87.63 62.23 180)
+			(at 107.95 59.69 0)
 			(uuid "e320a71b-a1a4-4812-88fd-5c42d42720f9")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(instances

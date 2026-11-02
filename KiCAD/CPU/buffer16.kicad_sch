@@ -1624,7 +1624,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-20_W7.62mm"
 			(at 121.92 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -1738,7 +1738,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ace0fa2-fdad-46a7-959c-8b7068515fe8")
-		(property "Reference" "#PWR087"
+		(property "Reference" "#PWR090"
 			(at 132.08 140.97 0)
 			(hide yes)
 			(show_name no)
@@ -1798,7 +1798,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/fc6b3fc5-3aa0-4d60-b3fa-6561d6d5b6a4"
-					(reference "#PWR087")
+					(reference "#PWR090")
 					(unit 1)
 				)
 			)
@@ -1815,7 +1815,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "705218b5-e7b2-47cc-88e7-5f2edd49a707")
-		(property "Reference" "#PWR085"
+		(property "Reference" "#PWR088"
 			(at 121.92 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -1875,7 +1875,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/fc6b3fc5-3aa0-4d60-b3fa-6561d6d5b6a4"
-					(reference "#PWR085")
+					(reference "#PWR088")
 					(unit 1)
 				)
 			)
@@ -1893,7 +1893,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9090bc87-a98b-4243-97f4-7ed4492c26d2")
-		(property "Reference" "#PWR086"
+		(property "Reference" "#PWR089"
 			(at 121.92 154.94 0)
 			(hide yes)
 			(show_name no)
@@ -1953,7 +1953,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/fc6b3fc5-3aa0-4d60-b3fa-6561d6d5b6a4"
-					(reference "#PWR086")
+					(reference "#PWR089")
 					(unit 1)
 				)
 			)
@@ -1970,7 +1970,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "91eca5b1-c74c-4ae7-8bbc-0c01bbb476c5")
-		(property "Reference" "#PWR083"
+		(property "Reference" "#PWR086"
 			(at 121.92 59.69 0)
 			(hide yes)
 			(show_name no)
@@ -2030,7 +2030,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/fc6b3fc5-3aa0-4d60-b3fa-6561d6d5b6a4"
-					(reference "#PWR083")
+					(reference "#PWR086")
 					(unit 1)
 				)
 			)
@@ -2070,7 +2070,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_DIP:DIP-20_W7.62mm"
 			(at 121.92 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -2184,7 +2184,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ebf0278c-e3ae-4fe6-97f2-c9c39d3101a5")
-		(property "Reference" "#PWR084"
+		(property "Reference" "#PWR087"
 			(at 121.92 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -2244,7 +2244,7 @@
 		(instances
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/fc6b3fc5-3aa0-4d60-b3fa-6561d6d5b6a4"
-					(reference "#PWR084")
+					(reference "#PWR087")
 					(unit 1)
 				)
 			)
