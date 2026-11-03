@@ -7075,16 +7075,6 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 83.82) (xy 106.68 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "596a3c7d-8689-48f2-b406-f5f56af37e45")
-	)
-	(wire
-		(pts
 			(xy 111.76 115.57) (xy 115.57 115.57)
 		)
 		(stroke
@@ -8405,6 +8395,16 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 83.82) (xy 106.68 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2b138e9-5ca0-4fc6-a3e9-220cd9cad1af")
+	)
+	(wire
+		(pts
 			(xy 25.4 242.57) (xy 35.56 242.57)
 		)
 		(stroke
@@ -9412,6 +9412,16 @@
 			(justify left bottom)
 		)
 		(uuid "97ab3fa3-8419-4d16-b367-743e65d3a66e")
+	)
+	(label "~{CY}"
+		(at 99.06 83.82 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "99029cc6-6f56-44a9-985d-b6bb886de9b4")
 	)
 	(label "MODE"
 		(at 25.4 123.19 0)
@@ -13060,83 +13070,6 @@
 			(project "CPU"
 				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/6d2a12a0-36a9-4389-b5c6-74723908fd89"
 					(reference "U28")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VCC")
-		(at 104.14 83.82 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c1497aab-2163-4859-9d2d-89f2de5e658c")
-		(property "Reference" "#PWR050"
-			(at 104.14 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VCC"
-			(at 100.584 82.804 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 104.14 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 104.14 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VCC\""
-			(at 104.14 83.82 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "e9e9a638-c03c-4e48-a6a1-9baa575977ab")
-		)
-		(instances
-			(project "CPU"
-				(path "/a20f94c8-e12f-422f-aacc-6eccc92eb74d/6d2a12a0-36a9-4389-b5c6-74723908fd89"
-					(reference "#PWR050")
 					(unit 1)
 				)
 			)

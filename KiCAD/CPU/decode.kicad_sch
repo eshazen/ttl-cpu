@@ -15,6 +15,56 @@
 		)
 		(uuid "4c52602f-57af-4696-8d65-2db68f38e8f4")
 	)
+	(wire
+		(pts
+			(xy 106.68 105.41) (xy 115.57 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5bab6855-1e4d-4339-b9d5-3c23ba845c1f")
+	)
+	(wire
+		(pts
+			(xy 106.68 102.87) (xy 115.57 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c402db44-9ed0-4073-97d5-84459e9f5171")
+	)
+	(wire
+		(pts
+			(xy 106.68 107.95) (xy 115.57 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d86937ca-b495-491b-8a03-cb6d3d1ae387")
+	)
+	(label "ALU_OF"
+		(at 107.95 105.41 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0635e0b7-7c8e-4d8d-bf3f-4c1b1ef35f28")
+	)
+	(label "ALU_Z"
+		(at 107.95 107.95 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "168ebbbc-4f3b-445b-b1ba-2ac3e2bd54cb")
+	)
 	(label "D[0..15]"
 		(at 44.45 35.56 0)
 		(effects
@@ -24,6 +74,16 @@
 			(justify left bottom)
 		)
 		(uuid "657b0c5b-a9a9-4d7e-97eb-48afa2d769b1")
+	)
+	(label "ALU_EQ"
+		(at 107.95 102.87 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c06d1959-7191-4599-9fc3-f9b97015e351")
 	)
 	(hierarchical_label "~{RAM_WE}"
 		(shape output)
@@ -101,6 +161,39 @@
 			(justify left)
 		)
 		(uuid "53eadea9-22a7-47d3-a4f3-bd78080cd44c")
+	)
+	(hierarchical_label "ALU_OF"
+		(shape input)
+		(at 106.68 105.41 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "56070eb1-804a-4b0a-9714-e69bea41f0c3")
+	)
+	(hierarchical_label "ALU_EQ"
+		(shape input)
+		(at 106.68 102.87 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5be33354-6258-47b0-86a2-9f32a00892de")
+	)
+	(hierarchical_label "ALU_Z"
+		(shape input)
+		(at 106.68 107.95 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "78308fcb-3d4f-4c0c-b591-aef6c22d7e38")
 	)
 	(hierarchical_label "~{B_OE}"
 		(shape output)
