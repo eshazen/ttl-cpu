@@ -7,7 +7,7 @@
 	(lib_symbols)
 	(bus
 		(pts
-			(xy 78.74 87.63) (xy 63.5 87.63)
+			(xy 55.88 35.56) (xy 40.64 35.56)
 		)
 		(stroke
 			(width 0)
@@ -16,7 +16,7 @@
 		(uuid "4c52602f-57af-4696-8d65-2db68f38e8f4")
 	)
 	(label "D[0..15]"
-		(at 67.31 87.63 0)
+		(at 44.45 35.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -25,9 +25,97 @@
 		)
 		(uuid "657b0c5b-a9a9-4d7e-97eb-48afa2d769b1")
 	)
+	(hierarchical_label "~{RAM_WE}"
+		(shape output)
+		(at 130.81 58.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "0c5f0ad1-699e-4901-8ec7-85c9f67d1ae2")
+	)
+	(hierarchical_label "~{IR_OE}"
+		(shape output)
+		(at 130.81 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "359121e9-4de5-4e6b-85d6-c6a54116b92e")
+	)
+	(hierarchical_label "~{ALU_OE}"
+		(shape output)
+		(at 130.81 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3de1afdc-e400-4c6c-a31f-74ceccfb94bd")
+	)
+	(hierarchical_label "~{IR_EN}"
+		(shape output)
+		(at 130.81 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4020c24c-3e59-41e8-9dcb-d216ace6db53")
+	)
+	(hierarchical_label "~{C_EN}"
+		(shape output)
+		(at 130.81 73.66 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4217f9fe-ffc4-4978-b64e-074858851a5e")
+	)
+	(hierarchical_label "~{RAM_OE}"
+		(shape output)
+		(at 130.81 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "5319410a-684e-4d93-92e4-7355221223d3")
+	)
+	(hierarchical_label "~{PC_INC}"
+		(shape output)
+		(at 130.81 38.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "53eadea9-22a7-47d3-a4f3-bd78080cd44c")
+	)
+	(hierarchical_label "~{B_OE}"
+		(shape output)
+		(at 130.81 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7a93d101-0239-4850-8c48-cb8a65b92aa6")
+	)
 	(hierarchical_label "D[0..15]"
 		(shape input)
-		(at 63.5 87.63 180)
+		(at 40.64 35.56 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -35,5 +123,82 @@
 			(justify right)
 		)
 		(uuid "7de156eb-440c-4953-842a-e5a6d6857d21")
+	)
+	(hierarchical_label "~{PC_LD}"
+		(shape output)
+		(at 130.81 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8eeead46-251c-46cb-b1a3-383d1c677267")
+	)
+	(hierarchical_label "~{A_EN}"
+		(shape output)
+		(at 130.81 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9267e6ea-906d-4676-ab68-77d6b1ac6672")
+	)
+	(hierarchical_label "~{ALU2B}"
+		(shape output)
+		(at 130.81 85.09 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b1a03f09-0de9-4e7b-a729-a62f29c3561a")
+	)
+	(hierarchical_label "~{MAR_EN}"
+		(shape output)
+		(at 130.81 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b870dbac-fa5e-4ca1-abdc-dd93f5474d83")
+	)
+	(hierarchical_label "~{B_EN}"
+		(shape output)
+		(at 130.81 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c6a68db3-23db-4847-8f6d-ece77068361b")
+	)
+	(hierarchical_label "~{C_OE}"
+		(shape output)
+		(at 130.81 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d21b0e87-0b3a-478b-ac7a-3cd2091ed6eb")
+	)
+	(hierarchical_label "~{PC_OE}"
+		(shape output)
+		(at 130.81 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f328917e-dd78-4306-a2b2-7219c756f0a3")
 	)
 )
