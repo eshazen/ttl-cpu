@@ -14,7 +14,7 @@ architecture sim of top_tb is
 
 begin
 
-    rst <= '0', '1' after 37 ns;
+  rst <= '0', '1' after 150 ns;
   not_q <= not q;
 
   process
@@ -22,15 +22,15 @@ begin
   begin
 
     clk <= '0';
-    wait for 100 ns;
+    wait for 50 ns;
     clk <= '1';
-    wait for 100 ns;
+    wait for 50 ns;
 
   end process;
 
   SN74LS74N_1: entity ttl_library.SN74LS74N
     port map (
-      X_1  => '1',
+      X_1  => rst,
       X_2  => not_q,
       X_3  => clk,
       X_4  => '1',

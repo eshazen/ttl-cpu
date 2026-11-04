@@ -7795,7 +7795,7 @@ entity SN74LS181N is
     X_21 : in    std_logic;             -- A2\
     X_22 : in    std_logic;             -- B1\
     X_23 : in    std_logic;             -- A1\
-    X_24 : inout std_logic              -- Vcc
+    X_24 : inout std_logic              -- Vcc   
     );
 end entity SN74LS181N;
 

@@ -1,4 +1,0 @@
-v 4
-file . "top_tb.vhd" "d9dbdf277d034b9376925c35a9f20c5182c84022" "20261103201947.197":
-  entity top_tb at 2( 1) + 0 on 11;
-  architecture sim of top_tb at 11( 118) + 0 on 12;
