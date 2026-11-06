@@ -521,8 +521,8 @@
     "meta": {
       "version": 5
     },
-    "net_colors": {},
-    "netclass_assignments": {},
+    "net_colors": null,
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -665,7 +665,7 @@
         "uuid": "a20f94c8-e12f-422f-aacc-6eccc92eb74d"
       }
     ],
-    "used_designators": "#PWR1-91,U1-44",
+    "used_designators": "U45-46",
     "variants": []
   },
   "sheets": [
