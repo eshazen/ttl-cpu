@@ -1,183 +1,148 @@
 -- Generated from KiCad XML using OpenCores TTLParts.vhd
--- Named KiCad nets are exposed as top-level ports.
--- Unconnected TTL inputs are represented by 'U' and reported.
+-- Top-level ports are selected manually with --port.
+-- Unconnected TTL inputs are represented by 'U' and reported as warnings.
 
 library ieee;
 use ieee.std_logic_1164.all;
 
 entity schematic is
-    port (
-        a_d0 : out std_logic;
-        a_d1 : out std_logic;
-        a_d2 : out std_logic;
-        a_d3 : out std_logic;
-        a_d4 : out std_logic;
-        a_d5 : out std_logic;
-        a_d6 : out std_logic;
-        a_d7 : out std_logic;
-        a_d8 : out std_logic;
-        a_d9 : out std_logic;
-        a_d10 : out std_logic;
-        a_d11 : out std_logic;
-        a_d12 : out std_logic;
-        a_d13 : out std_logic;
-        a_d14 : out std_logic;
-        a_d15 : out std_logic;
-        a_q0 : out std_logic;
-        a_q1 : out std_logic;
-        a_q2 : out std_logic;
-        a_q3 : out std_logic;
-        a_q4 : out std_logic;
-        a_q5 : out std_logic;
-        a_q6 : out std_logic;
-        a_q7 : out std_logic;
-        a_q8 : out std_logic;
-        a_q9 : out std_logic;
-        a_q10 : out std_logic;
-        a_q11 : out std_logic;
-        a_q12 : out std_logic;
-        a_q13 : out std_logic;
-        a_q14 : out std_logic;
-        a_q15 : out std_logic;
-        alu_a0 : out std_logic;
-        alu_a1 : out std_logic;
-        alu_a2 : out std_logic;
-        alu_a3 : out std_logic;
-        alu_a4 : out std_logic;
-        alu_a5 : out std_logic;
-        alu_a6 : out std_logic;
-        alu_a7 : out std_logic;
-        alu_a8 : out std_logic;
-        alu_a9 : out std_logic;
-        alu_a10 : out std_logic;
-        alu_a11 : out std_logic;
-        alu_a12 : out std_logic;
-        alu_a13 : out std_logic;
-        alu_a14 : out std_logic;
-        alu_a15 : out std_logic;
-        alu_cn_x : out std_logic;
-        alu_cn_y : out std_logic;
-        alu_cn_z : out std_logic;
-        alu_eq0 : out std_logic;
-        alu_eq1 : out std_logic;
-        alu_eq2 : out std_logic;
-        alu_eq3 : out std_logic;
-        alu_eqh : in std_logic;
-        alu_eql : in std_logic;
-        alu_f0 : out std_logic;
-        alu_f1 : out std_logic;
-        alu_f2 : out std_logic;
-        alu_f3 : out std_logic;
-        alu_f4 : out std_logic;
-        alu_f5 : out std_logic;
-        alu_f6 : out std_logic;
-        alu_f7 : out std_logic;
-        alu_f8 : out std_logic;
-        alu_f9 : out std_logic;
-        alu_f10 : out std_logic;
-        alu_f11 : out std_logic;
-        alu_f12 : out std_logic;
-        alu_f13 : out std_logic;
-        alu_f14 : out std_logic;
-        alu_f15 : out std_logic;
-        alu_g : out std_logic;
-        alu_p : out std_logic;
-        alu_eq : out std_logic;
-        alu_of : out std_logic;
-        alu_s0 : in std_logic;
-        alu_s1 : in std_logic;
-        alu_s2 : in std_logic;
-        alu_s3 : in std_logic;
-        alu_z : out std_logic;
-        ir_q0 : out std_logic;
-        ir_q1 : out std_logic;
-        ir_q2 : out std_logic;
-        ir_q3 : out std_logic;
-        ir_q4 : out std_logic;
-        ir_q5 : out std_logic;
-        ir_q6 : out std_logic;
-        ir_q7 : out std_logic;
-        ir_q8 : out std_logic;
-        ir_q9 : out std_logic;
-        ir_q10 : out std_logic;
-        ir_q11 : out std_logic;
-        ir_q12 : out std_logic;
-        ir_q13 : out std_logic;
-        ir_q14 : out std_logic;
-        ir_q15 : out std_logic;
-        mar_q0 : out std_logic;
-        mar_q1 : out std_logic;
-        mar_q2 : out std_logic;
-        mar_q3 : out std_logic;
-        mar_q4 : out std_logic;
-        mar_q5 : out std_logic;
-        mar_q6 : out std_logic;
-        mar_q7 : out std_logic;
-        mar_q8 : out std_logic;
-        mar_q9 : out std_logic;
-        mar_q10 : out std_logic;
-        mar_q11 : out std_logic;
-        mar_q12 : out std_logic;
-        mar_q13 : out std_logic;
-        mar_q14 : out std_logic;
-        mar_q15 : out std_logic;
-        mode : in std_logic;
-        alu2b : out std_logic;
-        alu_cin : in std_logic;
-        alu_en : out std_logic;
-        alu_oe : out std_logic;
-        a_en : in std_logic;
-        b_en : out std_logic;
-        b_oe : out std_logic;
-        c_en : out std_logic;
-        c_oe : out std_logic;
-        ir_en : out std_logic;
-        ir_oe : out std_logic;
-        mar_en : out std_logic;
-        pc_inc : out std_logic;
-        pc_ld : out std_logic;
-        pc_oe : out std_logic;
-        ram_oe : out std_logic;
-        ram_we : out std_logic;
-        clk : in std_logic;
-        unconnected_u1_tc_pad15 : out std_logic;
-        unconnected_u7_q0_pad2 : out std_logic;
-        unconnected_u7_q1_pad5 : out std_logic;
-        unconnected_u9_i0a_pad2 : in std_logic;
-        unconnected_u9_i1a_pad4 : in std_logic;
-        unconnected_u11_q0_pad2 : out std_logic;
-        unconnected_u11_q1_pad5 : out std_logic;
-        unconnected_u13_i0a_pad2 : in std_logic;
-        unconnected_u13_i1a_pad4 : in std_logic;
-        unconnected_u15_q0_pad2 : out std_logic;
-        unconnected_u15_q1_pad5 : out std_logic;
-        unconnected_u17_i0a_pad2 : in std_logic;
-        unconnected_u17_i1a_pad4 : in std_logic;
-        unconnected_u19_cn_4_pad16 : out std_logic;
-        unconnected_u20_cn_4_pad16 : out std_logic;
-        unconnected_u21_cn_4_pad16 : out std_logic;
-        unconnected_u22_cn_4_pad16 : out std_logic;
-        unconnected_u29_pad5 : in std_logic;
-        unconnected_u31_p_q_pad1 : out std_logic;
-        unconnected_u32_p_q_pad1 : out std_logic;
-        unconnected_u35_q0_pad2 : out std_logic;
-        unconnected_u35_q1_pad5 : out std_logic;
-        unconnected_u37_i0a_pad2 : in std_logic;
-        unconnected_u37_i1a_pad4 : in std_logic;
-        unconnected_u39_q0_pad2 : out std_logic;
-        unconnected_u39_q1_pad5 : out std_logic;
-        unconnected_u41_i0a_pad2 : in std_logic;
-        unconnected_u41_i1a_pad4 : in std_logic;
-        unconnected_u45_gnd_pad10 : in std_logic;
-        unconnected_u45_vcc_pad20 : in std_logic;
-        unconnected_u46_gnd_pad10 : in std_logic;
-        unconnected_u46_q7_pad19 : out std_logic;
-        unconnected_u46_vcc_pad20 : in std_logic
-    );
 end entity;
 
 architecture structural of schematic is
 
+    signal a_d0 : std_logic; -- KiCad net: /A/D0
+    signal a_d1 : std_logic; -- KiCad net: /A/D1
+    signal a_d2 : std_logic; -- KiCad net: /A/D2
+    signal a_d3 : std_logic; -- KiCad net: /A/D3
+    signal a_d4 : std_logic; -- KiCad net: /A/D4
+    signal a_d5 : std_logic; -- KiCad net: /A/D5
+    signal a_d6 : std_logic; -- KiCad net: /A/D6
+    signal a_d7 : std_logic; -- KiCad net: /A/D7
+    signal a_d8 : std_logic; -- KiCad net: /A/D8
+    signal a_d9 : std_logic; -- KiCad net: /A/D9
+    signal a_d10 : std_logic; -- KiCad net: /A/D10
+    signal a_d11 : std_logic; -- KiCad net: /A/D11
+    signal a_d12 : std_logic; -- KiCad net: /A/D12
+    signal a_d13 : std_logic; -- KiCad net: /A/D13
+    signal a_d14 : std_logic; -- KiCad net: /A/D14
+    signal a_d15 : std_logic; -- KiCad net: /A/D15
+    signal a_q0 : std_logic; -- KiCad net: /A/Q0
+    signal a_q1 : std_logic; -- KiCad net: /A/Q1
+    signal a_q2 : std_logic; -- KiCad net: /A/Q2
+    signal a_q3 : std_logic; -- KiCad net: /A/Q3
+    signal a_q4 : std_logic; -- KiCad net: /A/Q4
+    signal a_q5 : std_logic; -- KiCad net: /A/Q5
+    signal a_q6 : std_logic; -- KiCad net: /A/Q6
+    signal a_q7 : std_logic; -- KiCad net: /A/Q7
+    signal a_q8 : std_logic; -- KiCad net: /A/Q8
+    signal a_q9 : std_logic; -- KiCad net: /A/Q9
+    signal a_q10 : std_logic; -- KiCad net: /A/Q10
+    signal a_q11 : std_logic; -- KiCad net: /A/Q11
+    signal a_q12 : std_logic; -- KiCad net: /A/Q12
+    signal a_q13 : std_logic; -- KiCad net: /A/Q13
+    signal a_q14 : std_logic; -- KiCad net: /A/Q14
+    signal a_q15 : std_logic; -- KiCad net: /A/Q15
+    signal alu_a0 : std_logic; -- KiCad net: /ALU/A0
+    signal alu_a1 : std_logic; -- KiCad net: /ALU/A1
+    signal alu_a2 : std_logic; -- KiCad net: /ALU/A2
+    signal alu_a3 : std_logic; -- KiCad net: /ALU/A3
+    signal alu_a4 : std_logic; -- KiCad net: /ALU/A4
+    signal alu_a5 : std_logic; -- KiCad net: /ALU/A5
+    signal alu_a6 : std_logic; -- KiCad net: /ALU/A6
+    signal alu_a7 : std_logic; -- KiCad net: /ALU/A7
+    signal alu_a8 : std_logic; -- KiCad net: /ALU/A8
+    signal alu_a9 : std_logic; -- KiCad net: /ALU/A9
+    signal alu_a10 : std_logic; -- KiCad net: /ALU/A10
+    signal alu_a11 : std_logic; -- KiCad net: /ALU/A11
+    signal alu_a12 : std_logic; -- KiCad net: /ALU/A12
+    signal alu_a13 : std_logic; -- KiCad net: /ALU/A13
+    signal alu_a14 : std_logic; -- KiCad net: /ALU/A14
+    signal alu_a15 : std_logic; -- KiCad net: /ALU/A15
+    signal alu_cn_x : std_logic; -- KiCad net: /ALU/CN+X
+    signal alu_cn_y : std_logic; -- KiCad net: /ALU/CN+Y
+    signal alu_cn_z : std_logic; -- KiCad net: /ALU/CN+Z
+    signal alu_eq0 : std_logic; -- KiCad net: /ALU/EQ0
+    signal alu_eq1 : std_logic; -- KiCad net: /ALU/EQ1
+    signal alu_eq2 : std_logic; -- KiCad net: /ALU/EQ2
+    signal alu_eq3 : std_logic; -- KiCad net: /ALU/EQ3
+    signal alu_eqh : std_logic; -- KiCad net: /ALU/EQH
+    signal alu_eql : std_logic; -- KiCad net: /ALU/EQL
+    signal alu_f0 : std_logic; -- KiCad net: /ALU/F0
+    signal alu_f1 : std_logic; -- KiCad net: /ALU/F1
+    signal alu_f2 : std_logic; -- KiCad net: /ALU/F2
+    signal alu_f3 : std_logic; -- KiCad net: /ALU/F3
+    signal alu_f4 : std_logic; -- KiCad net: /ALU/F4
+    signal alu_f5 : std_logic; -- KiCad net: /ALU/F5
+    signal alu_f6 : std_logic; -- KiCad net: /ALU/F6
+    signal alu_f7 : std_logic; -- KiCad net: /ALU/F7
+    signal alu_f8 : std_logic; -- KiCad net: /ALU/F8
+    signal alu_f9 : std_logic; -- KiCad net: /ALU/F9
+    signal alu_f10 : std_logic; -- KiCad net: /ALU/F10
+    signal alu_f11 : std_logic; -- KiCad net: /ALU/F11
+    signal alu_f12 : std_logic; -- KiCad net: /ALU/F12
+    signal alu_f13 : std_logic; -- KiCad net: /ALU/F13
+    signal alu_f14 : std_logic; -- KiCad net: /ALU/F14
+    signal alu_f15 : std_logic; -- KiCad net: /ALU/F15
+    signal alu_g : std_logic; -- KiCad net: /ALU/G
+    signal alu_p : std_logic; -- KiCad net: /ALU/P
+    signal alu_eq : std_logic; -- KiCad net: /ALU_EQ
+    signal alu_of : std_logic; -- KiCad net: /ALU_OF
+    signal alu_s0 : std_logic; -- KiCad net: /ALU_S0
+    signal alu_s1 : std_logic; -- KiCad net: /ALU_S1
+    signal alu_s2 : std_logic; -- KiCad net: /ALU_S2
+    signal alu_s3 : std_logic; -- KiCad net: /ALU_S3
+    signal alu_z : std_logic; -- KiCad net: /ALU_Z
+    signal ir_q0 : std_logic; -- KiCad net: /IR/Q0
+    signal ir_q1 : std_logic; -- KiCad net: /IR/Q1
+    signal ir_q2 : std_logic; -- KiCad net: /IR/Q2
+    signal ir_q3 : std_logic; -- KiCad net: /IR/Q3
+    signal ir_q4 : std_logic; -- KiCad net: /IR/Q4
+    signal ir_q5 : std_logic; -- KiCad net: /IR/Q5
+    signal ir_q6 : std_logic; -- KiCad net: /IR/Q6
+    signal ir_q7 : std_logic; -- KiCad net: /IR/Q7
+    signal ir_q8 : std_logic; -- KiCad net: /IR/Q8
+    signal ir_q9 : std_logic; -- KiCad net: /IR/Q9
+    signal ir_q10 : std_logic; -- KiCad net: /IR/Q10
+    signal ir_q11 : std_logic; -- KiCad net: /IR/Q11
+    signal ir_q12 : std_logic; -- KiCad net: /IR/Q12
+    signal ir_q13 : std_logic; -- KiCad net: /IR/Q13
+    signal ir_q14 : std_logic; -- KiCad net: /IR/Q14
+    signal ir_q15 : std_logic; -- KiCad net: /IR/Q15
+    signal mar_q0 : std_logic; -- KiCad net: /MAR/Q0
+    signal mar_q1 : std_logic; -- KiCad net: /MAR/Q1
+    signal mar_q2 : std_logic; -- KiCad net: /MAR/Q2
+    signal mar_q3 : std_logic; -- KiCad net: /MAR/Q3
+    signal mar_q4 : std_logic; -- KiCad net: /MAR/Q4
+    signal mar_q5 : std_logic; -- KiCad net: /MAR/Q5
+    signal mar_q6 : std_logic; -- KiCad net: /MAR/Q6
+    signal mar_q7 : std_logic; -- KiCad net: /MAR/Q7
+    signal mar_q8 : std_logic; -- KiCad net: /MAR/Q8
+    signal mar_q9 : std_logic; -- KiCad net: /MAR/Q9
+    signal mar_q10 : std_logic; -- KiCad net: /MAR/Q10
+    signal mar_q11 : std_logic; -- KiCad net: /MAR/Q11
+    signal mar_q12 : std_logic; -- KiCad net: /MAR/Q12
+    signal mar_q13 : std_logic; -- KiCad net: /MAR/Q13
+    signal mar_q14 : std_logic; -- KiCad net: /MAR/Q14
+    signal mar_q15 : std_logic; -- KiCad net: /MAR/Q15
+    signal mode : std_logic; -- KiCad net: /MODE
+    signal alu2b : std_logic; -- KiCad net: /~{ALU2B}
+    signal alu_cin : std_logic; -- KiCad net: /~{ALU_CIN}
+    signal alu_en : std_logic; -- KiCad net: /~{ALU_EN}
+    signal alu_oe : std_logic; -- KiCad net: /~{ALU_OE}
+    signal a_en : std_logic; -- KiCad net: /~{A_EN}
+    signal b_en : std_logic; -- KiCad net: /~{B_EN}
+    signal b_oe : std_logic; -- KiCad net: /~{B_OE}
+    signal c_en : std_logic; -- KiCad net: /~{C_EN}
+    signal c_oe : std_logic; -- KiCad net: /~{C_OE}
+    signal ir_en : std_logic; -- KiCad net: /~{IR_EN}
+    signal ir_oe : std_logic; -- KiCad net: /~{IR_OE}
+    signal mar_en : std_logic; -- KiCad net: /~{MAR_EN}
+    signal pc_inc : std_logic; -- KiCad net: /~{PC_INC}
+    signal pc_ld : std_logic; -- KiCad net: /~{PC_LD}
+    signal pc_oe : std_logic; -- KiCad net: /~{PC_OE}
+    signal ram_oe : std_logic; -- KiCad net: /~{RAM_OE}
+    signal ram_we : std_logic; -- KiCad net: /~{RAM_WE}
+    signal clk : std_logic; -- KiCad net: CLK
     signal gnd : std_logic; -- KiCad net: GND
     signal net_n_145 : std_logic; -- KiCad net: Net-(U1-CET)
     signal net_n_146 : std_logic; -- KiCad net: Net-(U1-Q0)
@@ -279,7 +244,37 @@ architecture structural of schematic is
     signal net_n_242 : std_logic; -- KiCad net: Net-(U40-Q5)
     signal net_n_243 : std_logic; -- KiCad net: Net-(U40-Q6)
     signal net_n_244 : std_logic; -- KiCad net: Net-(U40-Q7)
+    signal net_n_245 : std_logic; -- KiCad net: Net-(U45-~{E})
     signal vcc : std_logic; -- KiCad net: VCC
+    signal unconnected_u1_tc_pad15 : std_logic; -- KiCad net: unconnected-(U1-TC-Pad15)
+    signal unconnected_u7_q0_pad2 : std_logic; -- KiCad net: unconnected-(U7-Q0-Pad2)
+    signal unconnected_u7_q1_pad5 : std_logic; -- KiCad net: unconnected-(U7-Q1-Pad5)
+    signal unconnected_u9_i0a_pad2 : std_logic; -- KiCad net: unconnected-(U9-I0a-Pad2)
+    signal unconnected_u9_i1a_pad4 : std_logic; -- KiCad net: unconnected-(U9-I1a-Pad4)
+    signal unconnected_u11_q0_pad2 : std_logic; -- KiCad net: unconnected-(U11-Q0-Pad2)
+    signal unconnected_u11_q1_pad5 : std_logic; -- KiCad net: unconnected-(U11-Q1-Pad5)
+    signal unconnected_u13_i0a_pad2 : std_logic; -- KiCad net: unconnected-(U13-I0a-Pad2)
+    signal unconnected_u13_i1a_pad4 : std_logic; -- KiCad net: unconnected-(U13-I1a-Pad4)
+    signal unconnected_u15_q0_pad2 : std_logic; -- KiCad net: unconnected-(U15-Q0-Pad2)
+    signal unconnected_u15_q1_pad5 : std_logic; -- KiCad net: unconnected-(U15-Q1-Pad5)
+    signal unconnected_u17_i0a_pad2 : std_logic; -- KiCad net: unconnected-(U17-I0a-Pad2)
+    signal unconnected_u17_i1a_pad4 : std_logic; -- KiCad net: unconnected-(U17-I1a-Pad4)
+    signal unconnected_u19_cn_4_pad16 : std_logic; -- KiCad net: unconnected-(U19-Cn+4-Pad16)
+    signal unconnected_u20_cn_4_pad16 : std_logic; -- KiCad net: unconnected-(U20-Cn+4-Pad16)
+    signal unconnected_u21_cn_4_pad16 : std_logic; -- KiCad net: unconnected-(U21-Cn+4-Pad16)
+    signal unconnected_u22_cn_4_pad16 : std_logic; -- KiCad net: unconnected-(U22-Cn+4-Pad16)
+    signal unconnected_u29_pad5 : std_logic; -- KiCad net: unconnected-(U29-Pad5)
+    signal unconnected_u35_q0_pad2 : std_logic; -- KiCad net: unconnected-(U35-Q0-Pad2)
+    signal unconnected_u35_q1_pad5 : std_logic; -- KiCad net: unconnected-(U35-Q1-Pad5)
+    signal unconnected_u37_i0a_pad2 : std_logic; -- KiCad net: unconnected-(U37-I0a-Pad2)
+    signal unconnected_u37_i1a_pad4 : std_logic; -- KiCad net: unconnected-(U37-I1a-Pad4)
+    signal unconnected_u39_q0_pad2 : std_logic; -- KiCad net: unconnected-(U39-Q0-Pad2)
+    signal unconnected_u39_q1_pad5 : std_logic; -- KiCad net: unconnected-(U39-Q1-Pad5)
+    signal unconnected_u41_i0a_pad2 : std_logic; -- KiCad net: unconnected-(U41-I0a-Pad2)
+    signal unconnected_u41_i1a_pad4 : std_logic; -- KiCad net: unconnected-(U41-I1a-Pad4)
+    signal unconnected_u46_q7_pad19 : std_logic; -- KiCad net: unconnected-(U46-Q7-Pad19)
+    signal unconnected_u48_p_q_pad1 : std_logic; -- KiCad net: unconnected-(U48-~{P>Q}-Pad1)
+    signal unconnected_u49_p_q_pad1 : std_logic; -- KiCad net: unconnected-(U49-~{P>Q}-Pad1)
     signal gnd : std_logic;
     signal vcc : std_logic;
 
@@ -1004,6 +999,56 @@ begin
             X_14 => vcc
         );
 
+    -- U48: SN74LS682 -> SN74LS682N
+    u48 : entity work.SN74LS682N
+        port map (
+            X_1 => unconnected_u48_p_q_pad1,
+            X_2 => alu_f0,
+            X_3 => gnd,
+            X_4 => alu_f1,
+            X_5 => gnd,
+            X_6 => alu_f2,
+            X_7 => gnd,
+            X_8 => alu_f3,
+            X_9 => gnd,
+            X_10 => gnd,
+            X_11 => alu_f4,
+            X_12 => gnd,
+            X_13 => alu_f5,
+            X_14 => gnd,
+            X_15 => alu_f6,
+            X_16 => gnd,
+            X_17 => alu_f7,
+            X_18 => gnd,
+            X_19 => open,
+            X_20 => vcc
+        );
+
+    -- U49: SN74LS682 -> SN74LS682N
+    u49 : entity work.SN74LS682N
+        port map (
+            X_1 => unconnected_u49_p_q_pad1,
+            X_2 => alu_f8,
+            X_3 => gnd,
+            X_4 => alu_f9,
+            X_5 => gnd,
+            X_6 => alu_f10,
+            X_7 => gnd,
+            X_8 => alu_f11,
+            X_9 => gnd,
+            X_10 => gnd,
+            X_11 => alu_f12,
+            X_12 => gnd,
+            X_13 => alu_f13,
+            X_14 => gnd,
+            X_15 => alu_f14,
+            X_16 => gnd,
+            X_17 => alu_f15,
+            X_18 => gnd,
+            X_19 => open,
+            X_20 => vcc
+        );
+
     -- U35: 74LS377 -> SN74LS377N
     u35 : entity work.SN74LS377N
         port map (
@@ -1207,7 +1252,7 @@ begin
     -- U45: 74LS377 -> SN74LS377N
     u45 : entity work.SN74LS377N
         port map (
-            X_1 => alu_of,
+            X_1 => net_n_245,
             X_2 => pc_ld,
             X_3 => ir_q0,
             X_4 => ir_q1,
@@ -1216,7 +1261,7 @@ begin
             X_7 => ir_q2,
             X_8 => ir_q3,
             X_9 => ir_en,
-            X_10 => unconnected_u45_gnd_pad10,
+            X_10 => gnd,
             X_11 => alu_eq,
             X_12 => ir_oe,
             X_13 => ir_q4,
@@ -1226,7 +1271,7 @@ begin
             X_17 => ir_q6,
             X_18 => ir_q7,
             X_19 => ram_oe,
-            X_20 => unconnected_u45_vcc_pad20
+            X_20 => vcc
         );
 
     -- U46: 74LS377 -> SN74LS377N
@@ -1241,7 +1286,7 @@ begin
             X_7 => ir_q10,
             X_8 => ir_q11,
             X_9 => c_oe,
-            X_10 => unconnected_u46_gnd_pad10,
+            X_10 => gnd,
             X_11 => alu_eq,
             X_12 => alu_en,
             X_13 => ir_q12,
@@ -1251,7 +1296,26 @@ begin
             X_17 => ir_q14,
             X_18 => ir_q15,
             X_19 => unconnected_u46_q7_pad19,
-            X_20 => unconnected_u46_vcc_pad20
+            X_20 => vcc
+        );
+
+    -- U47: 74LS32 -> SN74LS32N
+    u47 : entity work.SN74LS32N
+        port map (
+            X_1 => alu_of,
+            X_2 => alu_z,
+            X_3 => net_n_245,
+            X_4 => 'U',
+            X_5 => 'U',
+            X_6 => open,
+            X_7 => gnd,
+            X_8 => open,
+            X_9 => 'U',
+            X_10 => 'U',
+            X_11 => open,
+            X_12 => 'U',
+            X_13 => 'U',
+            X_14 => vcc
         );
 
     -- U43: 74LS244 -> SN74LS244N

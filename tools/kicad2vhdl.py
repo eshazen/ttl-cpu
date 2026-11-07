@@ -1,9 +1,9 @@
+
 #!/usr/bin/env python3
 """Convert a KiCad XML netlist to structural VHDL using OpenCores TTLParts.vhd.
 
-Named KiCad nets become top-level ports (except recognized supply nets).
-Unnamed nets remain internal signals. Unconnected TTL inputs are mapped to
-'U' and reported as warnings by default.
+Top-level ports are selected manually with repeatable --port options.
+Unconnected TTL inputs are mapped to 'U' and reported as warnings by default.
 
 Example:
   python3 kicad2vhdl.py schematic.xml TTLParts.vhd -o schematic.vhd
@@ -93,7 +93,10 @@ def load_ttl_library(filename):
                 "function": comment,
             }
         if pins:
-            devices[normalize_part(entity_name)] = {"entity": entity_name, "pins": pins}
+            devices[normalize_part(entity_name)] = {
+                "entity": entity_name,
+                "pins": pins,
+            }
     return devices
 
 
@@ -113,7 +116,11 @@ def parse_kicad_netlist(filename):
 
     for net in root.findall("./nets/net"):
         code = net.get("code")
-        nets[code] = {"code": code, "name": net.get("name", ""), "nodes": []}
+        nets[code] = {
+            "code": code,
+            "name": net.get("name", ""),
+            "nodes": [],
+        }
         for node in net.findall("node"):
             ref, pin = node.get("ref"), node.get("pin")
             pintype = (node.get("pintype") or "").lower()
@@ -140,17 +147,20 @@ def power_function(function):
 def infer_port_direction(code, net, node_types):
     """Infer top-level direction from the KiCad electrical pin types."""
     types = [node_types.get(node, "") for node in net["nodes"]]
-    if any(t in {"output", "tri_state", "open_collector", "open_emitter"} for t in types):
+    if any(t in {
+        "output", "tri_state", "open_collector", "open_emitter"
+    } for t in types):
         return "out"
     if any(t in {"bidirectional", "passive"} for t in types):
         return "inout"
-    # A labelled net attached only to component inputs is an external input.
     return "in"
 
 
-def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
-                  devices, top, auto_power=True, strict_inputs=False,
-                  expose_labels=True):
+def generate_vhdl(
+    components, nets, pin_to_net, no_connect, node_types,
+    devices, top, auto_power=True, strict_inputs=False,
+    manual_ports=None
+):
     lines, warnings, errors = [], [], []
     net_names = unique_signal_names(nets)
     power_net_values = {}
@@ -160,14 +170,60 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
         label = net.get("name", "")
         if label.upper() in POWER_NET_VALUES:
             power_net_values[code] = POWER_NET_VALUES[label.upper()]
-        elif expose_labels and is_named_net(label):
-            top_ports[code] = infer_port_direction(code, net, node_types)
 
-    # Entity declaration. Named nets are ports; all other nets are internal.
+    # Only explicitly selected nets become entity ports.
+    # Select by exact KiCad net name or code=<net-code>.
+    for selector in (manual_ports or []):
+        if ":" in selector:
+            net_selector, direction = selector.rsplit(":", 1)
+            direction = direction.lower()
+            if direction not in {"in", "out", "inout"}:
+                raise ValueError(
+                    f"Invalid port direction in --port {selector!r}; "
+                    "use in, out, or inout"
+                )
+        else:
+            net_selector, direction = selector, None
+
+        if net_selector.startswith("code="):
+            code = net_selector[5:]
+            matches = [code] if code in nets else []
+        else:
+            matches = [
+                code for code, net in nets.items()
+                if net.get("name", "") == net_selector
+            ]
+
+        if not matches:
+            raise ValueError(
+                f"--port refers to unknown KiCad net {net_selector!r}"
+            )
+        if len(matches) > 1:
+            raise ValueError(
+                f"--port net name {net_selector!r} is ambiguous; "
+                "use --port code=<code>"
+            )
+
+        code = matches[0]
+
+        if code in power_net_values:
+            raise ValueError(
+                f"Power net {nets[code]['name']!r} is driven internally "
+                "and cannot be a top-level port"
+            )
+        if code in top_ports:
+            raise ValueError(
+                f"KiCad net {net_selector!r} was selected more than once"
+            )
+
+        top_ports[code] = (
+            direction or infer_port_direction(code, nets[code], node_types)
+        )
+
     lines += [
         "-- Generated from KiCad XML using OpenCores TTLParts.vhd",
-        "-- Named KiCad nets are exposed as top-level ports.",
-        "-- Unconnected TTL inputs are represented by 'U' and reported.",
+        "-- Top-level ports are selected manually with --port.",
+        "-- Unconnected TTL inputs are represented by 'U' and reported as warnings.",
         "",
         "library ieee;",
         "use ieee.std_logic_1164.all;",
@@ -179,23 +235,37 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
         lines.append("    port (")
         declarations = []
         for code, direction in top_ports.items():
-            declarations.append(f"        {net_names[code]} : {direction} std_logic")
+            declarations.append(
+                f"        {net_names[code]} : {direction} std_logic"
+            )
         lines.append(";\n".join(declarations))
         lines.append("    );")
-    lines += ["end entity;", "", f"architecture structural of {vhdl_id(top)} is", ""]
 
+    lines += [
+        "end entity;",
+        "",
+        f"architecture structural of {vhdl_id(top)} is",
+        "",
+    ]
+
+    # All nets not selected as top-level ports are internal signals.
     for code, net in nets.items():
         if code in top_ports:
             continue
-        lines.append(f"    signal {net_names[code]} : std_logic; -- KiCad net: {net['name']}")
+        lines.append(
+            f"    signal {net_names[code]} : std_logic; "
+            f"-- KiCad net: {net['name']}"
+        )
 
-    # Find whether unconnected power pins require fallback supply signals.
+    # Determine whether fallback power signals are needed.
     has_fallback_gnd = has_fallback_vcc = False
+
     for ref, comp in components.items():
         key = normalize_part(comp["part"]) or normalize_part(comp["value"])
         dev = devices.get(key)
         if not dev:
             continue
+
         for pin, info in dev["pins"].items():
             if (ref, pin) not in pin_to_net and (ref, pin) not in no_connect:
                 pf = power_function(info["function"])
@@ -215,8 +285,10 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
         lines.append("    gnd <= '0';")
     if has_fallback_vcc:
         lines.append("    vcc <= '1';")
+
     for code, value in power_net_values.items():
         lines.append(f"    {net_names[code]} <= '{value}';")
+
     if has_fallback_gnd or has_fallback_vcc or power_net_values:
         lines.append("")
 
@@ -224,14 +296,22 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
     for ref, comp in components.items():
         key = normalize_part(comp["part"]) or normalize_part(comp["value"])
         dev = devices.get(key)
+
         if not dev:
-            if comp["lib"] == "74xx" or normalize_part(comp["value"]).startswith("74"):
-                warnings.append(f"{ref}: no matching TTLParts.vhd entity for {comp['part'] or comp['value']}")
+            if (
+                comp["lib"] == "74xx"
+                or normalize_part(comp["value"]).startswith("74")
+            ):
+                warnings.append(
+                    f"{ref}: no matching TTLParts.vhd entity for "
+                    f"{comp['part'] or comp['value']}"
+                )
             continue
 
         lines.append(f"    -- {ref}: {comp['value']} -> {dev['entity']}")
         lines.append(f"    {vhdl_id(ref)} : entity work.{dev['entity']}")
         lines.append("        port map (")
+
         associations = []
 
         for pin in sorted(dev["pins"], key=int):
@@ -242,27 +322,39 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
             if node in pin_to_net:
                 code = pin_to_net[node]
                 expr = net_names[code]
+
             elif node in no_connect:
                 pf = power_function(info["function"])
                 if auto_power and pf:
                     expr = pf
                 elif direction == "in":
                     expr = "'U'"
-                    warnings.append(f"{ref} pin {pin}: explicitly no-connect input ({info['function'] or port})")
+                    warnings.append(
+                        f"{ref} pin {pin}: explicitly no-connect input "
+                        f"({info['function'] or port})"
+                    )
                 else:
                     expr = "open"
+
             else:
                 pf = power_function(info["function"])
+
                 if auto_power and pf:
                     expr = pf
                 elif direction == "in":
                     expr = "'U'"
-                    msg = f"{ref} pin {pin}: unconnected input ({info['function'] or port})"
+                    msg = (
+                        f"{ref} pin {pin}: unconnected input "
+                        f"({info['function'] or port})"
+                    )
                     (errors if strict_inputs else warnings).append(msg)
                 else:
                     expr = "open"
                     if direction == "inout":
-                        warnings.append(f"{ref} pin {pin}: unconnected inout ({info['function'] or port})")
+                        warnings.append(
+                            f"{ref} pin {pin}: unconnected inout "
+                            f"({info['function'] or port})"
+                        )
 
             associations.append(f"            {port} => {expr}")
 
@@ -271,63 +363,120 @@ def generate_vhdl(components, nets, pin_to_net, no_connect, node_types,
         lines.append("")
 
     lines += ["end architecture structural;", ""]
+
     if errors:
-        raise ValueError("Unconnected TTL inputs (strict mode):\n" + "\n".join(errors))
+        raise ValueError(
+            "Unconnected TTL inputs (strict mode):\n" + "\n".join(errors)
+        )
+
     return "\n".join(lines), warnings, top_ports
 
 
+def net_names_for_report(label, code):
+    return (
+        vhdl_id(label)
+        if is_named_net(label)
+        else "net_" + vhdl_id(code)
+    )
+
+
 def main():
-    ap = argparse.ArgumentParser(description="KiCad XML to OpenCores TTL structural VHDL")
+    ap = argparse.ArgumentParser(
+        description="KiCad XML to OpenCores TTL structural VHDL"
+    )
+
     ap.add_argument("netlist", help="KiCad XML netlist")
     ap.add_argument("ttlparts", help="OpenCores TTLParts.vhd")
     ap.add_argument("-o", "--output", default="netlist.vhd")
     ap.add_argument("-t", "--top", default="schematic")
-    ap.add_argument("--no-auto-power", action="store_true",
-                    help="Do not automatically tie absent GND/VCC pins to logic 0/1")
-    ap.add_argument("--strict-inputs", action="store_true",
-                    help="Exit with an error if a TTL input is unconnected")
-    ap.add_argument("--no-label-ports", action="store_true",
-                    help="Keep named KiCad nets internal instead of making top-level ports")
+
+    ap.add_argument(
+        "--no-auto-power",
+        action="store_true",
+        help="Do not automatically tie absent GND/VCC pins to logic 0/1",
+    )
+
+    ap.add_argument(
+        "--strict-inputs",
+        action="store_true",
+        help="Exit with an error if a TTL input is unconnected",
+    )
+
+    ap.add_argument(
+        "--port",
+        action="append",
+        default=[],
+        metavar="NET[:DIR]",
+        help=(
+            "Expose a KiCad net as a top-level port (repeatable). "
+            "NET is an exact net label or code=<net-code>; DIR is "
+            "optional and may be in, out, or inout. If omitted, "
+            "direction is inferred from KiCad pin types."
+        ),
+    )
+
     args = ap.parse_args()
 
     try:
         devices = load_ttl_library(args.ttlparts)
-        components, nets, pin_to_net, no_connect, node_types = parse_kicad_netlist(args.netlist)
+
+        (
+            components,
+            nets,
+            pin_to_net,
+            no_connect,
+            node_types,
+        ) = parse_kicad_netlist(args.netlist)
+
         vhdl, warnings, top_ports = generate_vhdl(
-            components, nets, pin_to_net, no_connect, node_types,
-            devices, args.top,
+            components,
+            nets,
+            pin_to_net,
+            no_connect,
+            node_types,
+            devices,
+            args.top,
             auto_power=not args.no_auto_power,
             strict_inputs=args.strict_inputs,
-            expose_labels=not args.no_label_ports,
+            manual_ports=args.port,
         )
+
         with open(args.output, "w", encoding="utf-8") as f:
             f.write(vhdl)
 
         matched = sum(
             1 for c in components.values()
-            if (normalize_part(c["part"]) or normalize_part(c["value"])) in devices
+            if (
+                normalize_part(c["part"])
+                or normalize_part(c["value"])
+            ) in devices
         )
+
         print(f"TTL entities parsed: {len(devices)}")
         print(f"KiCad components:    {len(components)}")
         print(f"TTL instances:       {matched}")
         print(f"KiCad nets:          {len(nets)}")
-        print(f"Top-level ports:     {len(top_ports)}")
+        print(
+            f"Top-level ports:     {len(top_ports)} (manual selection)"
+        )
         print(f"Wrote:               {args.output}")
+
         if top_ports:
             print("\nTop-level ports:")
             for code, direction in top_ports.items():
-                print(f"  {net_names_for_report(nets[code]['name'], code)}: {direction}")
+                print(
+                    f"  {net_names_for_report(nets[code]['name'], code)}: "
+                    f"{direction}"
+                )
+
         if warnings:
             print("\nWarnings:")
             for warning in warnings:
                 print("  WARNING:", warning)
+
     except (OSError, ET.ParseError, ValueError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         sys.exit(1)
-
-
-def net_names_for_report(label, code):
-    return vhdl_id(label) if is_named_net(label) else "net_" + vhdl_id(code)
 
 
 if __name__ == "__main__":

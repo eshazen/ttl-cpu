@@ -1,0 +1,206 @@
+TTL entities parsed: 182
+KiCad components:    47
+TTL instances:       43
+KiCad nets:          265
+Top-level ports:     162
+Wrote:               netlist.vhd
+
+Top-level ports:
+  a_d0: out
+  a_d1: out
+  a_d2: out
+  a_d3: out
+  a_d4: out
+  a_d5: out
+  a_d6: out
+  a_d7: out
+  a_d8: out
+  a_d9: out
+  a_d10: out
+  a_d11: out
+  a_d12: out
+  a_d13: out
+  a_d14: out
+  a_d15: out
+  a_q0: out
+  a_q1: out
+  a_q2: out
+  a_q3: out
+  a_q4: out
+  a_q5: out
+  a_q6: out
+  a_q7: out
+  a_q8: out
+  a_q9: out
+  a_q10: out
+  a_q11: out
+  a_q12: out
+  a_q13: out
+  a_q14: out
+  a_q15: out
+  alu_a0: out
+  alu_a1: out
+  alu_a2: out
+  alu_a3: out
+  alu_a4: out
+  alu_a5: out
+  alu_a6: out
+  alu_a7: out
+  alu_a8: out
+  alu_a9: out
+  alu_a10: out
+  alu_a11: out
+  alu_a12: out
+  alu_a13: out
+  alu_a14: out
+  alu_a15: out
+  alu_cn_x: out
+  alu_cn_y: out
+  alu_cn_z: out
+  alu_eq0: out
+  alu_eq1: out
+  alu_eq2: out
+  alu_eq3: out
+  alu_eqh: in
+  alu_eql: in
+  alu_f0: out
+  alu_f1: out
+  alu_f2: out
+  alu_f3: out
+  alu_f4: out
+  alu_f5: out
+  alu_f6: out
+  alu_f7: out
+  alu_f8: out
+  alu_f9: out
+  alu_f10: out
+  alu_f11: out
+  alu_f12: out
+  alu_f13: out
+  alu_f14: out
+  alu_f15: out
+  alu_g: out
+  alu_p: out
+  alu_eq: out
+  alu_of: out
+  alu_s0: in
+  alu_s1: in
+  alu_s2: in
+  alu_s3: in
+  alu_z: out
+  ir_q0: out
+  ir_q1: out
+  ir_q2: out
+  ir_q3: out
+  ir_q4: out
+  ir_q5: out
+  ir_q6: out
+  ir_q7: out
+  ir_q8: out
+  ir_q9: out
+  ir_q10: out
+  ir_q11: out
+  ir_q12: out
+  ir_q13: out
+  ir_q14: out
+  ir_q15: out
+  mar_q0: out
+  mar_q1: out
+  mar_q2: out
+  mar_q3: out
+  mar_q4: out
+  mar_q5: out
+  mar_q6: out
+  mar_q7: out
+  mar_q8: out
+  mar_q9: out
+  mar_q10: out
+  mar_q11: out
+  mar_q12: out
+  mar_q13: out
+  mar_q14: out
+  mar_q15: out
+  mode: in
+  alu2b: out
+  alu_cin: in
+  alu_en: out
+  alu_oe: out
+  a_en: in
+  b_en: out
+  b_oe: out
+  c_en: out
+  c_oe: out
+  ir_en: out
+  ir_oe: out
+  mar_en: out
+  pc_inc: out
+  pc_ld: out
+  pc_oe: out
+  ram_oe: out
+  ram_we: out
+  clk: in
+  unconnected_u1_tc_pad15: out
+  unconnected_u7_q0_pad2: out
+  unconnected_u7_q1_pad5: out
+  unconnected_u9_i0a_pad2: in
+  unconnected_u9_i1a_pad4: in
+  unconnected_u11_q0_pad2: out
+  unconnected_u11_q1_pad5: out
+  unconnected_u13_i0a_pad2: in
+  unconnected_u13_i1a_pad4: in
+  unconnected_u15_q0_pad2: out
+  unconnected_u15_q1_pad5: out
+  unconnected_u17_i0a_pad2: in
+  unconnected_u17_i1a_pad4: in
+  unconnected_u19_cn_4_pad16: out
+  unconnected_u20_cn_4_pad16: out
+  unconnected_u21_cn_4_pad16: out
+  unconnected_u22_cn_4_pad16: out
+  unconnected_u29_pad5: in
+  unconnected_u31_p_q_pad1: out
+  unconnected_u32_p_q_pad1: out
+  unconnected_u35_q0_pad2: out
+  unconnected_u35_q1_pad5: out
+  unconnected_u37_i0a_pad2: in
+  unconnected_u37_i1a_pad4: in
+  unconnected_u39_q0_pad2: out
+  unconnected_u39_q1_pad5: out
+  unconnected_u41_i0a_pad2: in
+  unconnected_u41_i1a_pad4: in
+  unconnected_u46_q7_pad19: out
+
+Warnings:
+  WARNING: U24 pin 9: unconnected input (3B)
+  WARNING: U24 pin 10: unconnected input (3A)
+  WARNING: U24 pin 12: unconnected input (4B)
+  WARNING: U24 pin 13: unconnected input (4A)
+  WARNING: U27 pin 4: unconnected input (2A)
+  WARNING: U27 pin 5: unconnected input (2B)
+  WARNING: U27 pin 9: unconnected input (3B)
+  WARNING: U27 pin 10: unconnected input (3A)
+  WARNING: U27 pin 12: unconnected input (4B)
+  WARNING: U27 pin 13: unconnected input (4A)
+  WARNING: U28 pin 4: unconnected input (2A)
+  WARNING: U28 pin 5: unconnected input (2B)
+  WARNING: U28 pin 9: unconnected input (3B)
+  WARNING: U28 pin 10: unconnected input (3A)
+  WARNING: U28 pin 12: unconnected input (4B)
+  WARNING: U28 pin 13: unconnected input (4A)
+  WARNING: U29 pin 9: unconnected input (2D)
+  WARNING: U29 pin 10: unconnected input (2C)
+  WARNING: U29 pin 12: unconnected input (2B)
+  WARNING: U29 pin 13: unconnected input (2A)
+  WARNING: U30 pin 5: unconnected input (2A)
+  WARNING: U30 pin 6: unconnected input (2B)
+  WARNING: U30 pin 8: unconnected input (3B)
+  WARNING: U30 pin 9: unconnected input (3A)
+  WARNING: U30 pin 11: unconnected input (4B)
+  WARNING: U30 pin 12: unconnected input (4A)
+  WARNING: U31: no matching TTLParts.vhd entity for my_74LS682
+  WARNING: U32: no matching TTLParts.vhd entity for my_74LS682_1
+  WARNING: U47 pin 4: unconnected input (2A)
+  WARNING: U47 pin 5: unconnected input (2B)
+  WARNING: U47 pin 9: unconnected input (3B)
+  WARNING: U47 pin 10: unconnected input (3A)
+  WARNING: U47 pin 12: unconnected input (4B)
+  WARNING: U47 pin 13: unconnected input (4A)

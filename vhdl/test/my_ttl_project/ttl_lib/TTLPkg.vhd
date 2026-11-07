@@ -5494,6 +5494,31 @@ port(
 );
 end component SN74LS670N;
 
+component SN74LS682N is
+  port (
+    X_1  : out STD_LOGIC;
+    X_2  : in  STD_LOGIC;
+    X_3  : in  STD_LOGIC;
+    X_4  : in  STD_LOGIC;
+    X_5  : in  STD_LOGIC;
+    X_6  : in  STD_LOGIC;
+    X_7  : in  STD_LOGIC;
+    X_8  : in  STD_LOGIC;
+    X_9  : in  STD_LOGIC;
+    X_10 : in  STD_LOGIC;
+    X_11 : in  STD_LOGIC;
+    X_12 : in  STD_LOGIC;
+    X_13 : in  STD_LOGIC;
+    X_14 : in  STD_LOGIC;
+    X_15 : in  STD_LOGIC;
+    X_16 : in  STD_LOGIC;
+    X_17 : in  STD_LOGIC;
+    X_18 : in  STD_LOGIC;
+    X_19 : out STD_LOGIC;
+    X_20 : in  STD_LOGIC);
+end component SN74LS682N;
+
+
 -- SN74LS671N: 4-bit universal shift register/latch (3-state output)
 -- SN74LS672N: 4-bit universal shift register/latch (3-state output)
 -- SN74LS673N: 16-bit shift register
