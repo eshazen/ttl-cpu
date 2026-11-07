@@ -603,6 +603,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 20.32) (xy 63.5 20.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "777e2cb7-4beb-4d76-8215-558f4cfee3ef")
+	)
+	(wire
+		(pts
 			(xy 76.2 39.37) (xy 87.63 39.37)
 		)
 		(stroke
@@ -1201,6 +1211,16 @@
 		)
 		(uuid "952311e9-c8d8-4703-b767-fb359cc28149")
 	)
+	(label "CLK"
+		(at 54.61 20.32 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9a652b2e-442c-48b0-bd54-d6ffdac2311c")
+	)
 	(label "~{IR_OE}"
 		(at 157.48 38.1 0)
 		(effects
@@ -1330,6 +1350,30 @@
 			(justify left bottom)
 		)
 		(uuid "e62f25ce-89f0-4a58-94c5-a6443aa4450d")
+	)
+	(global_label "CLK"
+		(shape input)
+		(at 49.53 20.32 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "78a37814-762f-456e-8ec7-50a21c8ec5ec")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 42.9767 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
